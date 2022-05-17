@@ -1,0 +1,55 @@
+<nb-card>
+  <nb-card-header>
+    <h4>Liste des emplacements</h4>
+  </nb-card-header>
+  <nb-card-body >
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <button  (click)="btnClick()" [status]="'primary'" nbButton ><nb-icon [icon]="'plus-outline'" pack="eva"></nb-icon>Nouvel Emplacement</button>
+      </div>
+      <div class="form-group col-md-5" style="position:absolute;right:0;">
+        <div class="input-group">
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <button type="button" class="btn btn-outline-primary">search</button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Code Emplacement</th>
+        <th scope="col">Alle</th>
+        <th scope="col">Travee</th>
+        <th scope="col">Niveau</th>
+        <th scope="col">Alveole</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let e of emps | paginate : {id:'listing' , itemsPerPage:6,currentPage:empService.page,totalItems:empService.totalRecords } ; index as i ">
+        <td>{{e.code}}</td>
+        <td>{{e.alle}}</td>
+        <td>{{e.travee}}</td>
+        <td>{{e.niveau}}</td>
+        <td>{{e.alveole}}</td>
+        <td>{{e.status}}</td>
+
+        <ng-container><span>
+         <button (click)="delete(e,i)" [status]="'danger'" nbButton ><nb-icon [icon]="'trash-2-outline'" pack="eva"></nb-icon>
+          </button>
+                    </span>
+        </ng-container>
+      </tr>
+
+      </tbody>
+    </table>
+    <div>
+      <pagination-controls id="listing" maxSize="5" directionLinks="true" (pageChange)="empService.page=$event"></pagination-controls>
+    </div>
+  </nb-card-body>
+</nb-card>

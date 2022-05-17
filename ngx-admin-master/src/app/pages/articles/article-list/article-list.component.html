@@ -1,0 +1,51 @@
+<nb-card>
+  <nb-card-header>
+    <h4>Liste des articles</h4>
+  </nb-card-header>
+  <nb-card-body >
+    <div class="form-row">
+      <div class="form-group col-md-3">
+    <button  (click)="btnClick()" [status]="'primary'" nbButton ><nb-icon [icon]="'plus-outline'" pack="eva"></nb-icon>Nouvel Article</button>
+        </div>
+      <div class="form-group col-md-5" style="position:absolute;right:0;">
+        <div class="input-group">
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <button type="button" class="btn btn-outline-primary">search</button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Code produit</th>
+      <th scope="col">Nom produit</th>
+      <th scope="col">Stock disponible</th>
+      <th scope="col">date d'expiration</th>
+      <th scope="col">Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let a of articles | paginate : {id:'listing' , itemsPerPage:6,currentPage:articleService.page,totalItems:articleService.totalRecords } ; index as i ">
+      <td>{{a.code}}</td>
+      <td>{{a.nom}}</td>
+      <td>{{a.qtt}}</td>
+      <td>{{a.dateExp}}</td>
+       <ng-container><span>
+         <button (click)="delete(a,i)" [status]="'danger'" nbButton ><nb-icon [icon]="'trash-2-outline'" pack="eva"></nb-icon>
+          </button>
+                    </span>
+       </ng-container>
+    </tr>
+
+    </tbody>
+    </table>
+    <div>
+      <pagination-controls id="listing" maxSize="5" directionLinks="true" (pageChange)="articleService.page=$event"></pagination-controls>
+    </div>
+  </nb-card-body>
+</nb-card>

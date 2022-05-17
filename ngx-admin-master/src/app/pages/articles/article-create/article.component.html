@@ -1,0 +1,113 @@
+<nb-card>
+  <nb-card-header>
+    <button style="position:relative;margin-left: 95%"  (click)="onClose()" mat-icon-button class="close-button" [mat-dialog-close]="false">X</button>
+
+    <h4>Nouvel Article</h4>
+
+  </nb-card-header>
+
+  <nb-card-body >
+
+    <form name="ArticleForm"
+    >
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Code produit*</label>
+          <input maxlength="6" id="code" required (keypress)="omit_special_char($event)" [(ngModel)]="article.code"
+                 name="code" type="text"
+                 class="form-control" placeholder="Code du produit">
+
+        </div>
+        <div class="form-group col-md-6">
+          <label>Nom*</label>
+          <input maxlength="10" (keypress)="omit_special_char($event)" [(ngModel)]="article.nom" name="nom" type="text"
+                 class="form-control" placeholder="Nom du produit">
+        </div>
+      </div>
+      <div class="form-row ">
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Libellé</label>
+          <input type="text" maxlength="40" (keypress)="omit_special_char($event)" class="form-control"
+                 [(ngModel)]="article.libelle" name="libelle" id="inputAddress"
+                 placeholder="Libellé du produit">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Unité*</label>
+          <i class="fa fa-info-circle"
+             title="L'article sera mesuré en fonction de cette unité (par exemple : kg, douzaine)"></i>
+          <select class="form-control" [(ngModel)]="article.unite" name="unite">
+            <option disabled selected>Choisir...</option>
+            <option>DOUZAINE</option>
+            <option>BOÎTE</option>
+            <option>GRAMMES</option>
+            <option>KILOGRAMMES</option>
+            <option>METRES</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6"><label for="inputAddress">Categorie du produit</label>
+          <select class="form-control" [(ngModel)]="article.categorie.nom" name="type">
+            <option *ngFor="let c of categories" [value]="c.nom">{{c.nom}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Marque</label>
+          <select class="form-control" [(ngModel)]="article.marque" name="marque">
+            <option disabled selected>Choisir...</option>
+            <option>ACE</option>
+            <option>MAXIS</option>
+            <option>KILOGRAMMES</option>
+            <option>METRES</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>CUP* </label>
+        <i class="fa fa-info-circle"
+           title="Numéro unique à douze chiffres associé au code-barres (Universal Product Code)"></i>
+        <input (keypress)="omit_special_char($event)" maxlength="12" [(ngModel)]="article.cup" name="cup" type="text"
+               class="form-control" id="inputAddress2"
+               placeholder="Le code universel du produit">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" [(ngModel)]="article.description" name="description" maxlength="200"
+                  id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label>Date d'expiration</label>
+          <input [(ngModel)]="article.dateExp" name="qtt" type="date" class="form-control">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Quantité en stock</label>
+          <input min="0" oninput="this.value = Math.abs(this.value)" [(ngModel)]="article.qtt" name="qtt" type="number"
+                 class="form-control" id="inputZip">
+        </div>
+          <div class="form-group col-md-6">
+            <label>Niveau d'approvisionnement</label>
+            <input min="0" oninput="this.value = Math.abs(this.value)" [(ngModel)]="article.approv" name="approv" type="number"
+                   class="form-control" id="inputZip">
+        </div>
+
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="articleService.isCreateFailed==true">
+        {{ this.articleService.errorMessage }}
+      </div>
+
+      <div class="alert alert-success"  role="alert" *ngIf="articleService.isCreateSucessed==true">
+        Article enregistré avec succès !
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary" (click)="save()">Enregistrer</button>
+      </div>
+
+
+    </form>
+  </nb-card-body>
+</nb-card>
+
