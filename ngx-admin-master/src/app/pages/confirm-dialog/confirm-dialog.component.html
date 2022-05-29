@@ -1,0 +1,12 @@
+<mat-dialog-content>
+    <button style="position: relative;left: 300px;" (click)="onClose()" mat-icon-button class="close-button" [mat-dialog-close]="false">
+        <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+    <p>
+        {{data.message}}
+    </p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary"  [mat-dialog-close]="true" tabindex="1">Oui</button>
+    <button mat-raised-button mat-dialog-close  [mat-dialog-close]="false" tabindex="-1">Non</button>
+</mat-dialog-actions>

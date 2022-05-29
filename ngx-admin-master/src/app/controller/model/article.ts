@@ -18,4 +18,5 @@ export class Article {
   public categorie = new Categorie();
   public prixPublic: number;
   public prixAchat: number;
+  public familleStockage:string;
 }

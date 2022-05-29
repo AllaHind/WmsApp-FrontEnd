@@ -1,0 +1,89 @@
+<nb-card>
+
+  <nb-card-header><h4>Nouvel Réception</h4></nb-card-header>
+
+  <nb-card-body>
+    <div class="form-group row">
+      <label for="inputEmail1" class="label col-sm-3 col-form-label">N° Réception</label>
+      <div class="col-sm-9">
+        <input type="email" nbInput fullWidth>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail1" class="label col-sm-3 col-form-label">Quantité reçue</label>
+      <div class="col-sm-9">
+        <input type="number" nbInput fullWidth>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail1" class="label col-sm-3 col-form-label">Quantité au plus</label>
+      <div class="col-sm-9">
+        <input type="number" nbInput fullWidth>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail1" class="label col-sm-3 col-form-label">Date de réception</label>
+      <div class="col-sm-9">
+        <input type="date" nbInput fullWidth>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail1" class="label col-sm-3 col-form-label">Commentaire</label>
+      <div class="col-sm-9">
+           <textarea class="form-control" maxlength="200"
+                     id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <nb-card class="inline-form-card">
+          <nb-card-header>Info commande</nb-card-header>
+          <nb-card-body>
+            <form>
+              <div class="form-group row">
+                <label  class="label col-sm-3 col-form-label">N°Commande</label>
+                <div class="col-sm-9">
+                  <input type="text" nbInput maxlength="12"  placeholder="exemple:GH43210310K3">
+
+                  <button style="position: relative;left: 15px" type="submit" nbButton status="primary">Chercher</button>
+
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <label class="label col-sm-3 col-form-label">Date de commande</label>
+                <div class="col-sm-9">
+                  <input type="text"disabled nbInput fullWidth >
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="label col-sm-3 col-form-label">Code Article</label>
+                <div class="col-sm-9">
+                  <input type="text"disabled nbInput fullWidth >
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="label col-sm-3 col-form-label">Quantité commandée</label>
+                <div class="col-sm-9">
+                  <input disabled type="text" nbInput fullWidth>
+                </div>
+                <br>
+                <br>
+                <br>
+
+              </div>
+
+            </form>
+          </nb-card-body>
+        </nb-card>
+
+
+      </div>
+    </div>
+  </nb-card-body>
+  <div class="form-group row">
+    <div class="offset-lg-10 ">
+      <button type="submit" nbButton status="success">Valider</button>
+    </div>
+  </div>
+</nb-card>

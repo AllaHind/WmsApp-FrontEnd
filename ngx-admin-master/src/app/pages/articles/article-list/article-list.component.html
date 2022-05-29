@@ -36,7 +36,9 @@
       <td>{{a.qtt}}</td>
       <td>{{a.dateExp}}</td>
        <ng-container><span>
-         <button (click)="delete(a,i)" [status]="'danger'" nbButton ><nb-icon [icon]="'trash-2-outline'" pack="eva"></nb-icon>
+         <button style="margin-right: 10px" (click)="open(content,a,i)" [status]="'danger'" nbButton ><nb-icon [icon]="'trash-2-outline'" pack="eva"></nb-icon>
+          </button>
+         <button  routerLink="/pages/articles/article-detail/{{a.id}}" [status]="'warning'" nbButton ><nb-icon [icon]="'plus-square-outline'" pack="eva"></nb-icon>
           </button>
                     </span>
        </ng-container>
@@ -48,4 +50,21 @@
       <pagination-controls id="listing" maxSize="5" directionLinks="true" (pageChange)="articleService.page=$event"></pagination-controls>
     </div>
   </nb-card-body>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure to delete this?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c('yes')">Yes</button>
+  </div>
+</ng-template>
 </nb-card>

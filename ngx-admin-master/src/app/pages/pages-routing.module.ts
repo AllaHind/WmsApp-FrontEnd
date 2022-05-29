@@ -11,6 +11,11 @@ import {ArticleListComponent} from './articles/article-list/article-list.compone
 import {EmplacementListComponent} from './emplacements/emplacement-list/emplacement-list.component';
 import {EmplacementCreateComponent} from './emplacements/emplacement-create/emplacement-create.component';
 import {MagasinListComponent} from './magasins/magasin-list/magasin-list.component';
+import {AttenduCreateComponent} from "./attendu/attendu-create/attendu-create.component";
+import {AttenduListComponent} from "./attendu/attendu-list/attendu-list.component";
+import {ArticleDetailsComponent} from "./articles/article-details/article-details.component";
+import {ReceptionCreateComponent} from "./reception/reception-create/reception-create.component";
+import {ReceptionListComponent} from "./reception/reception-list/reception-list.component";
 
 const routes: Routes = [{
   path: '',
@@ -26,6 +31,9 @@ const routes: Routes = [{
         {
           path: 'article-list',
           component: ArticleListComponent,
+        }, {
+          path: 'article-detail/:id',
+          component: ArticleDetailsComponent,
         },
       ],
     },
@@ -39,6 +47,28 @@ const routes: Routes = [{
         {
           path: 'emplacement-list',
           component: EmplacementListComponent,
+        },
+    ]},{
+      path: 'attendu',
+      children: [
+        {
+          path: 'attendu-create',
+          component: AttenduCreateComponent,
+        },
+        {
+          path: 'attendu-list',
+          component: AttenduListComponent,
+        },
+    ]},{
+      path: 'reception',
+      children: [
+        {
+          path: 'reception-create',
+          component: ReceptionCreateComponent,
+        },
+        {
+          path: 'reception-list',
+          component: ReceptionListComponent,
         },
     ]}, {
       path: 'magasins',

@@ -145,7 +145,12 @@
                 "input": "node_modules/leaflet/dist/images",
                 "output": "/assets/img/markers"
               }
-            ]
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "sass"
+              ]
+            }
           }
         },
         "lint": {

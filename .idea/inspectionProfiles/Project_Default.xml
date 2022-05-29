@@ -4,7 +4,7 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="10">
+          <list size="16">
             <item index="0" class="java.lang.String" itemvalue="nbtreegridcell" />
             <item index="1" class="java.lang.String" itemvalue="nbtreegridrow" />
             <item index="2" class="java.lang.String" itemvalue="nbtreegridheaderrow" />
@@ -15,6 +15,12 @@
             <item index="7" class="java.lang.String" itemvalue="mat-table" />
             <item index="8" class="java.lang.String" itemvalue="mat-fab" />
             <item index="9" class="java.lang.String" itemvalue="color" />
+            <item index="10" class="java.lang.String" itemvalue="mat-raised-button" />
+            <item index="11" class="java.lang.String" itemvalue="mat-icon-button" />
+            <item index="12" class="java.lang.String" itemvalue="mat-dialog-close" />
+            <item index="13" class="java.lang.String" itemvalue="routerlink" />
+            <item index="14" class="java.lang.String" itemvalue="bold" />
+            <item index="15" class="java.lang.String" itemvalue="status" />
           </list>
         </value>
       </option>
@@ -23,7 +29,7 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="28">
+          <list size="40">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -52,6 +58,18 @@
             <item index="25" class="java.lang.String" itemvalue="mat-cell" />
             <item index="26" class="java.lang.String" itemvalue="mat-icon" />
             <item index="27" class="java.lang.String" itemvalue="nb-icon" />
+            <item index="28" class="java.lang.String" itemvalue="mat-dialog-actions" />
+            <item index="29" class="java.lang.String" itemvalue="mat-dialog-content" />
+            <item index="30" class="java.lang.String" itemvalue="nb-radio-group" />
+            <item index="31" class="java.lang.String" itemvalue="nb-radio" />
+            <item index="32" class="java.lang.String" itemvalue="nb-option" />
+            <item index="33" class="java.lang.String" itemvalue="nb-select" />
+            <item index="34" class="java.lang.String" itemvalue="mat-autocomplete" />
+            <item index="35" class="java.lang.String" itemvalue="mat-option" />
+            <item index="36" class="java.lang.String" itemvalue="mat-progress-bar" />
+            <item index="37" class="java.lang.String" itemvalue="ngx-card" />
+            <item index="38" class="java.lang.String" itemvalue="nb-progress-bar" />
+            <item index="39" class="java.lang.String" itemvalue="bold" />
           </list>
         </value>
       </option>

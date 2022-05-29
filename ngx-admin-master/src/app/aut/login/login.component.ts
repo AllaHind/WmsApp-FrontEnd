@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         // this.reloadPage();
-        this.router.navigate(['/Articles/ArticleList']);
+        this.router.navigate(['/iot-dashboard']);
       },
       err => {
         this.errorMessage = err.error.message;
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  reloadPage(): void {
+  /*reloadPage(): void {
     window.location.reload();
-  }
+  }*/
 }

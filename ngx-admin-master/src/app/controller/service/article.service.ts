@@ -2,11 +2,14 @@ import {Injectable} from '@angular/core';
 import {Article} from '../model/article';
 import {HttpClient} from '@angular/common/http';
 import {TokenStorageService} from './token-storage.service';
+import {Observable, of} from "rxjs";
+import {tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root',
 })
 export class ArticleService {
+  opts = [];
   public totalRecords: any;
   public errorMessage: ' ';
   public isCreateFailed = false;
@@ -15,6 +18,8 @@ export class ArticleService {
   page: Number = 1;
   private _articles = new Array<Article>();
   public notif: string;
+  private _index: number;
+  private nombre: number;
 
   constructor(private http: HttpClient, private token: TokenStorageService) {
   }
@@ -115,6 +120,39 @@ export class ArticleService {
 
 
   }
+  public details(index: number, d: Article) {
+    this.article = this.clone(d);
+    this._index = index;
+
+  }
+
+  public findById(id:number) {
+
+    this.http.get<Article>('http://localhost:8080/Article/id/'+ id).subscribe(
+      data => {
+
+         return this._article = data;
+      },
+      error => {
+        console.log('erreur');
+
+      }
+
+      ,
+    );
+
+
+  }
+
+  public getNumberProduct() : Observable<any>{
+    return this.http.get<number>('http://localhost:8080/Article/GetNumberProduct/');
+
+  }public getAppro() : Observable<any>{
+    return this.http.get<number>('http://localhost:8080/Article/GetAppro/');
+
+  }
+
+
 
 }
 

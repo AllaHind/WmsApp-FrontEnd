@@ -2,56 +2,33 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
+    title: 'Dashboard',
+    icon: 'home-outline',
+    link: '/pages/iot-dashboard',
+  },
+
+
+  {
+    title: 'Entrepôt',
+    icon: 'home-outline',
+    children: [
+
+          {
+            title: 'Emplacement',
+            link: '/pages/emplacements/emplacement-list',
+
+      },
+
+  ]},
+
+  {
     title: 'Article',
     icon: 'shopping-cart-outline',
     link: '/pages/articles/article-list',
     home: true,
   },
   {
-    title: 'IoT Dashboard',
-    icon: 'home-outline',
-    link: '/pages/iot-dashboard',
-  },
-  {
-    title: 'FEATURES',
-    group: true,
-  },
-  {
-    title: 'Entrepôt',
-    icon: 'home-outline',
-    children: [
-      {
-        title: 'Magasin',
-        link: '/pages/magasins/magasin-list',
-        children: [
-          {
-            title: 'Emplacement',
-            link: '/pages/emplacements/emplacement-list',
-          },
-        ],
-      },
-
-      {
-        title: 'List',
-        link: '/pages/layout/list',
-      },
-      {
-        title: 'Infinite List',
-        link: '/pages/layout/infinite-list',
-      },
-      {
-        title: 'Accordion',
-        link: '/pages/layout/accordion',
-      },
-      {
-        title: 'Tabs',
-        pathMatch: 'prefix',
-        link: '/pages/layout/tabs',
-      },
-    ],
-  },
-  {
-    title: 'Forms',
+    title: 'Gestion de stocks',
     icon: 'edit-2-outline',
     children: [
       {
@@ -73,13 +50,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'UI Features',
+    title: 'Gestion de réceptions',
     icon: 'keypad-outline',
     link: '/pages/ui-features',
     children: [
       {
-        title: 'Grid',
-        link: '/pages/ui-features/grid',
+        title: 'Attendu',
+        link: '/pages/attendu/attendu-create',
       },
       {
         title: 'Icons',
@@ -95,7 +72,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-  {
+/*  {
     title: 'Modal & Overlays',
     icon: 'browser-outline',
     children: [
@@ -251,4 +228,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+
+ */
 ];

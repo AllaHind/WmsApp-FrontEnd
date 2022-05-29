@@ -6,6 +6,8 @@ import {EmplacementService} from '../../../controller/service/emplacement.servic
 import {Emplacement} from '../../../controller/model/emplacement';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {ArticleComponent} from "../../articles/article-create/article.component";
+import {EmplacementCreateComponent} from "../emplacement-create/emplacement-create.component";
+import {Article} from "../../../controller/model/article";
 
 @Component({
   selector: 'ngx-emplacement-list',
@@ -42,10 +44,12 @@ export class EmplacementListComponent implements OnInit {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.disableClose = true;
     dialogconfig.autoFocus = true;
-    dialogconfig.width = "80%";
+    dialogconfig.width = "50%";
 
-    this.dialog.open(ArticleComponent, dialogconfig);
+    this.dialog.open(EmplacementCreateComponent, dialogconfig);
   }
+
+
 }
 
 

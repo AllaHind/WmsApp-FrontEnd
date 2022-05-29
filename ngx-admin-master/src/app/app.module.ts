@@ -13,6 +13,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {
+
   NbThemeModule,
   NbChatModule,
   NbDatepickerModule,
@@ -22,18 +23,27 @@ import {
   NbToastrModule,
   NbWindowModule,
   NbInputModule,
-  NbCheckboxModule, NbButtonModule, NbIconComponent, NbIconModule,
+  NbCheckboxModule, NbButtonModule, NbIconComponent, NbIconModule, NbOptionModule, NbSelectModule, NbProgressBarModule,
 } from '@nebular/theme';
 import {PagesComponent} from './pages/pages.component';
 
 import {AuthInterceptor} from './controller/service/auth-interceptor.service';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './aut/login/login.component';
 import {MatButtonModule} from '@angular/material/button';
 import {CommonModule} from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {MatIconModule} from "@angular/material/icon";
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {TempComponent} from "./template/temp/temp.component";
+import {ConfirmDialogComponent} from "./pages/confirm-dialog/confirm-dialog.component";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {ArticleListComponent} from "./pages/articles/article-list/article-list.component";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatOptionModule} from "@angular/material/core";
+import {RouterModule} from "@angular/router";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+
 
 
 
@@ -41,21 +51,35 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, TempComponent],
   imports: [
+
+    NbProgressBarModule,
+    MatProgressBarModule,
+    RouterModule,
+    BrowserModule,
+    FormsModule,
+    MatOptionModule,
+    MatAutocompleteModule,
+    NbSelectModule,
+    NbOptionModule,
+    NgbModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
     NbIconModule,
     NbButtonModule,
     MatIconModule,
     CommonModule,
     NgxPaginationModule,
-    BrowserModule,
+
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
-    FormsModule,
+
     NbThemeModule.forRoot(),
     NbInputModule,
-    BrowserModule,
+
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -74,6 +98,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: MatDialogRef, useValue: []}, {provide: MAT_DIALOG_DATA, useValue: []}],
   bootstrap: [AppComponent],
+  entryComponents: [ ConfirmDialogComponent,ArticleListComponent],
 })
 export class AppModule {
 }

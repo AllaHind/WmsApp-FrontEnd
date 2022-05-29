@@ -22,22 +22,24 @@
       <thead>
       <tr>
         <th scope="col">Code Emplacement</th>
-        <th scope="col">Alle</th>
-        <th scope="col">Travee</th>
-        <th scope="col">Niveau</th>
-        <th scope="col">Alveole</th>
+        <th scope="col">Poids maximal</th>
         <th scope="col">Status</th>
         <th scope="col">Action</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let e of emps | paginate : {id:'listing' , itemsPerPage:6,currentPage:empService.page,totalItems:empService.totalRecords } ; index as i ">
-        <td>{{e.code}}</td>
-        <td>{{e.alle}}</td>
-        <td>{{e.travee}}</td>
-        <td>{{e.niveau}}</td>
-        <td>{{e.alveole}}</td>
-        <td>{{e.status}}</td>
+        <td><a href="">{{e.code}}</a></td>
+        <td>{{e.poidsMax}}</td>
+        <td style="color:green;font-size: 20px" *ngIf="e.status=='vide'">
+          <ng-container><b>{{e.status}}</b></ng-container>
+        </td>
+        <td *ngIf="e.status==null">
+          <ng-container><b>{{e.status}}</b></ng-container>
+        </td>
+        <td style="color:red;font-size: 20px" *ngIf="e.status=='occupé'">
+          <ng-container><b>{{e.status}}</b></ng-container>
+        </td>
 
         <ng-container><span>
          <button (click)="delete(e,i)" [status]="'danger'" nbButton ><nb-icon [icon]="'trash-2-outline'" pack="eva"></nb-icon>

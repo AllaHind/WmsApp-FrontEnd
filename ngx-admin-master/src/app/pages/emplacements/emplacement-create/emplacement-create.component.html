@@ -1,1 +1,54 @@
-<p>emplacement-create works!</p>
+<nb-card>
+
+  <nb-card-header>
+    <button style="position:relative;margin-left: 98%"  (click)="onClose()"  class="close-button" [mat-dialog-close]="false">X</button>
+    <h4>Nouvel Emplacement</h4>
+  </nb-card-header>
+  <nb-card-body>
+    <form>
+      <div class="form-group">
+        <label>Allé *</label>
+
+        <input required maxlength="1" [(ngModel)]="emp.alle" name="alle" type="text"
+               class="form-control"
+               placeholder="Saisir l'Allé">
+      </div>
+      <div class="form-group">
+        <label>Travée *</label>
+        <input required maxlength="2" [(ngModel)]="emp.travee" name="travee" type="text"
+               class="form-control"
+               placeholder="Saisir le numéro du travée">
+      </div>
+      <div class="form-group">
+        <label>Niveau *</label>
+
+        <input required  maxlength="2" [(ngModel)]="emp.niveau" name="niveau" type="text"
+               class="form-control"
+               placeholder="Saisir le numéro du niveau">
+      </div>
+      <div class="form-group">
+        <label>Alvéole *</label>
+        <input required maxlength="2"  [(ngModel)]="emp.alveole" name="alveole" type="text"
+               class="form-control"
+               placeholder="Saisir le numéro de l'aLvéole">
+
+      </div> <div class="form-group">
+        <label>Poids Maximal *</label>
+        <input required  oninput="this.value = Math.abs(this.value)"  [(ngModel)]="emp.poidsMax" name="poidsMax" type="number"
+               class="form-control"
+               placeholder="Saisir le numéro de l'aLvéole">
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="empService.isCreateFailed==true">
+        {{ this.empService.errorMessage }}
+      </div>
+
+      <div class="alert alert-success"  role="alert" *ngIf="empService.isCreateSucessed==true">
+        Emplacement crée avec succès !
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary" (click)="save()">Créer</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
+
